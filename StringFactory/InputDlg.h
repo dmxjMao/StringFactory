@@ -4,6 +4,10 @@
 #include "MyBitmapButton1.h"
 #include "afxext.h"
 
+#include <vector>
+#include <memory>
+#include "define.h"
+
 // CInputDlg dialog
 
 class CInputDlg : public CDialogEx
@@ -34,6 +38,8 @@ protected:
 	//CMyBitmapButton1 m_btnFmtSample;
 	CToolTipCtrl m_tip;
 	//CMyEdit1 m_edtTip;
+	CMFCToolBar m_tb[TB_NUM];
+	std::vector<std::vector<std::shared_ptr<CMenu>>> m_tbmuVec;//工具条按钮个数是可扩展的
 public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	afx_msg void OnBtnClickInputSample();

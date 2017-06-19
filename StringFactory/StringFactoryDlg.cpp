@@ -122,11 +122,11 @@ BOOL CStringFactoryDlg::OnInitDialog()
 	strFull.LoadString(IDS_TabTitle);
  	AfxExtractSubString(str, strFull, nTab++);
 	m_tab.AddTab(&m_inputDlg, str);
-	//格式控制
-	m_fmtControlDlg.Create(IDD_Fmt, this);
-	m_fmtControlDlg.SetOwner(&m_tab);
-	AfxExtractSubString(str, strFull, nTab++);
-	m_tab.AddTab(&m_fmtControlDlg, str);
+	////格式控制  和输入模板合并
+	//m_fmtControlDlg.Create(IDD_Fmt, this);
+	//m_fmtControlDlg.SetOwner(&m_tab);
+	//AfxExtractSubString(str, strFull, nTab++);
+	//m_tab.AddTab(&m_fmtControlDlg, str);
 	//输出控制
 	m_outputDlg.Create(IDD_Output, this);
 	m_outputDlg.SetOwner(&m_tab);

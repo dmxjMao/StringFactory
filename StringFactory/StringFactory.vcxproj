@@ -186,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BindInfoDlg.h" />
+    <ClInclude Include="define.h" />
     <ClInclude Include="FmtControlDlg.h" />
     <ClInclude Include="InputDlg.h" />
     <ClInclude Include="MyBitmapButton1.h" />
@@ -224,11 +225,10 @@
   <ItemGroup>
     <Image Include="res\abc_chalkboard_32px.ico" />
     <Image Include="res\right_arrow2_24px.bmp" />
-    <Image Include="res\right_arrow_16px.bmp" />
     <Image Include="res\right_arrow_24px.bmp" />
-    <Image Include="res\right_arrow_32px.bmp" />
-    <Image Include="res\right_arrow_32px.ico" />
     <Image Include="res\StringFactory.ico" />
+    <Image Include="res\整数工具条_16px.bmp" />
+    <Image Include="res\输出控制状态图片_32px.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -30,7 +30,7 @@ protected:
 	HICON m_hIcon;
 	CMFCOutlookBarTabCtrl m_tab;
 	CInputDlg m_inputDlg;
-	CFmtControlDlg m_fmtControlDlg;
+	//CFmtControlDlg m_fmtControlDlg;
 	COutputDlg m_outputDlg;
 	CBindInfoDlg m_bindInfoDlg;
 

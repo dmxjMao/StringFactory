@@ -6,9 +6,19 @@
 #include "InputDlg.h"
 #include "afxdialogex.h"
 
+using std::vector;
+
 #define IDC_btn_InputSample   100
 #define IDC_btn_FmtSample	  101
 #define IDC_edt_Tip			  102
+#define IDC_tbInt 103
+
+//工具条按钮ID
+UINT g_intBtns[] = { IDM_intRange , IDM_intRegular, IDM_intFix };
+//UINT g_floatBtns[] = { IDM_intRange , IDM_intRegular, IDM_intFix };
+//vector<UINT*> = { g_intBtns };
+//工具条按钮个数
+vector<int> g_btnNumVec = { sizeof(g_intBtns) / sizeof(g_intBtns[0]) };
 
 // CInputDlg dialog
 
@@ -17,7 +27,14 @@ IMPLEMENT_DYNAMIC(CInputDlg, CDialogEx)
 CInputDlg::CInputDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_Input, pParent)
 {
-
+	m_tbmuVec.resize(TB_NUM);
+	for (int i = 0; i < TB_NUM; ++i) {
+		m_tbmuVec[i].resize(g_btnNumVec[i]);
+		auto& v = m_tbmuVec[i];
+		for (int k = 0; k < (int)v.size(); ++k) {
+			v[k] = std::make_shared<CMenu>();
+		}
+	}
 }
 
 CInputDlg::~CInputDlg()
@@ -49,13 +66,13 @@ BOOL CInputDlg::OnInitDialog()
 	//GET_DLG_WH;
 
 	//布局
-	const int DIVIDE = 10;
+	const int DIVIDE = 20;
 	int xUnit = g_whDlg.cx / DIVIDE;
 	int yUnit = g_whDlg.cy / DIVIDE;
 	int l, t, w, h;//左上 和 宽高
 	int r, b;//右下
 	//输入框
-	l = xUnit; t = yUnit; w = xUnit * 7; h = yUnit * 3;
+	l = xUnit; t = yUnit; w = xUnit * 17; h = yUnit * 3;
 	CRect rc(CPoint(l, t), CSize(w, h));
 	r = rc.right; b = rc.bottom;
 	CMyEdit1* pEdit = (CMyEdit1*)GetDlgItem(IDC_edt_Input);
@@ -95,6 +112,27 @@ BOOL CInputDlg::OnInitDialog()
 		m_tip.AddTool(GetDlgItem(IDC_btn_FmtSample), str);	
 	}
 	
+	//预加载工具条
+	CMFCToolBar& tb = m_tb[TB_INT];
+	if (tb.Create(this, WS_CHILD | WS_VISIBLE | TBSTYLE_TOOLTIPS | TBSTYLE_TRANSPARENT, IDC_tbInt)) {
+		int btnNum = g_btnNumVec[TB_INT];
+		tb.SetButtons(g_intBtns, btnNum);
+		tb.CleanUpLockedImages();
+		tb.LoadBitmap(IDB_tbInt_16px);
+		tb.SetPaneStyle(tb.GetPaneStyle() &~(CBRS_GRIPPER | CBRS_SIZE_DYNAMIC | CBRS_BORDER_ANY));
+		int i = 0;
+		for (; i < btnNum; ++i) {
+			auto& spMenu = m_tbmuVec[TB_INT][i];
+			spMenu->CreatePopupMenu();
+			CMFCToolBarMenuButton tbmu(g_intBtns[i], spMenu->GetSafeHmenu(), -1);
+			tb.ReplaceButton(g_intBtns[i], tbmu);
+		}
+	}
+	//GetDlgItem(IDC_edt_Input)->GetWindowRect(&rc);
+	//ScreenToClient(&rc);
+	//l = rc.left; t = rc.bottom + yUnit;
+	//CSize sz = tb.CalcFixedLayout(FALSE, TRUE);
+	//tb.SetWindowPos(0, l, t, sz.cx, sz.cy, SWP_NOACTIVATE | SWP_NOZORDER);
 
 	return TRUE;
 }

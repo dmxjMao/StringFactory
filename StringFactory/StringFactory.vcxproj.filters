@@ -63,6 +63,9 @@
     <ClInclude Include="MyBitmapButton1.h">
       <Filter>MyControl</Filter>
     </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StringFactory.cpp">
@@ -110,19 +113,16 @@
     <Image Include="res\abc_chalkboard_32px.ico">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="res\right_arrow_32px.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\right_arrow_32px.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\right_arrow_16px.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="res\right_arrow_24px.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="res\right_arrow2_24px.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\整数工具条_16px.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\输出控制状态图片_32px.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
