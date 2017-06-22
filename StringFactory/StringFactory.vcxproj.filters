@@ -66,6 +66,9 @@
     <ClInclude Include="define.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyStatic1.h">
+      <Filter>MyControl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="StringFactory.cpp">
@@ -94,6 +97,12 @@
     </ClCompile>
     <ClCompile Include="MyBitmapButton1.cpp">
       <Filter>MyControl</Filter>
+    </ClCompile>
+    <ClCompile Include="MyStatic1.cpp">
+      <Filter>MyControl</Filter>
+    </ClCompile>
+    <ClCompile Include="utility.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

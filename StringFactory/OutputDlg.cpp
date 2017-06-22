@@ -30,6 +30,7 @@ void COutputDlg::DoDataExchange(CDataExchange* pDX)
 
 
 BEGIN_MESSAGE_MAP(COutputDlg, CDialogEx)
+
 END_MESSAGE_MAP()
 
 
@@ -41,24 +42,19 @@ BOOL COutputDlg::OnInitDialog()
 	CDialogEx::OnInitDialog();
 
 	// TODO:  Add extra initialization here
-	m_imgList.Create(32, 32, ILC_COLOR24, 3, 1);  //用这种方法指定颜色位数！
-	CBitmap bmp;
-	bmp.LoadBitmap(IDB_printState);
-	m_imgList.Add(&bmp, RGB(0, 0, 0));
+	//CRect rc;
+	//rc.SetRectEmpty();
+	//BOOL bRet = m_stsOK.Create(_T(" "), WS_CHILD | WS_VISIBLE | SS_OWNERDRAW, rc, this);
 
-	//IMAGEINFO imginfo;
-	//m_imgList.GetImageInfo(0, &imginfo);
-	//m_bm = imginfo.hbmImage;
-	//m_bmp.Attach(imginfo.hbmImage);
-	//CBitmap bm;
-	//m_bmp.LoadBitmap(IDB_right_arrow);
-
-	m_stsOK.ModifyStyle(0, SS_BITMAP);
-	m_stsOK.SetBitmap(LoadBitmap(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDB_right_arrow)));
-	//m_stsOK.SetWindowPos(0, 0, 0, 32, 32, SWP_NOMOVE | SWP_NOZORDER);
-	//m_stsOK.Invalidate();
+	//状态文本框位置
+	CRect rc;
+	GetDlgItem(IDC_btn_Generate)->GetWindowRect(&rc);
+	ScreenToClient(&rc);
+	m_stsOK.SetWindowPos(0, rc.right + 50, rc.top, 32 + 100, 32, SWP_NOZORDER | SWP_NOACTIVATE);
 
 	return TRUE;  // return TRUE unless you set the focus to a control
 				  // EXCEPTION: OCX Property Pages should return FALSE
 }
+
+
 

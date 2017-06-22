@@ -48,6 +48,10 @@ BOOL CStringFactoryApp::InitInstance()
 
 	//CWinApp::InitInstance();
 
+	ULONG_PTR gdiplusToken;
+	GdiplusStartupInput gdiplusStartupInput;
+	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
+
 
 	//// Create the shell manager, in case the dialog contains
 	//// any shell tree view or shell list view controls.
@@ -92,6 +96,9 @@ BOOL CStringFactoryApp::InitInstance()
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
+
+
+	GdiplusShutdown(gdiplusToken);
 	return FALSE;
 }
 

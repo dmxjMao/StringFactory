@@ -51,4 +51,9 @@
 #endif
 
 
+
 #include "utility.h"
+
+#include <gdiplus.h>
+#pragma comment(lib,"Gdiplus.lib")
+using namespace Gdiplus;

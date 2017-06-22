@@ -1,6 +1,7 @@
 #pragma once
-#include "afxwin.h"
-
+//#include "afxwin.h"
+#include "define.h"
+#include "MyStatic1.h"
 
 // COutputDlg dialog
 
@@ -22,11 +23,10 @@ protected:
 
 protected:
 	CComboBox m_cboReturn;
-	CStatic m_stsOK;
+	//CStatic m_stsOK;
+	CMyStatic1 m_stsOK;
 private:
-	CImageList m_imgList;
-	//HBITMAP m_bm;//Êä³ö×´Ì¬
-	CBitmap m_bmp;//Êä³ö×´Ì¬
+	OUTPUT_STATUS m_status = OUTPUT_NOTYET;
 public:
 	virtual BOOL OnInitDialog();
 };

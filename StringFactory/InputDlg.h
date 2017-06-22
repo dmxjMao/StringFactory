@@ -1,5 +1,5 @@
 #pragma once
-#include "afxwin.h"
+//#include "afxwin.h"
 #include "MyEdit1.h"
 #include "MyBitmapButton1.h"
 #include "afxext.h"

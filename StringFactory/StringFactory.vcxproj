@@ -191,6 +191,7 @@
     <ClInclude Include="InputDlg.h" />
     <ClInclude Include="MyBitmapButton1.h" />
     <ClInclude Include="MyEdit1.h" />
+    <ClInclude Include="MyStatic1.h" />
     <ClInclude Include="OutputDlg.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
@@ -206,6 +207,7 @@
     <ClCompile Include="InputDlg.cpp" />
     <ClCompile Include="MyBitmapButton1.cpp" />
     <ClCompile Include="MyEdit1.cpp" />
+    <ClCompile Include="MyStatic1.cpp" />
     <ClCompile Include="OutputDlg.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -215,6 +217,7 @@
     </ClCompile>
     <ClCompile Include="StringFactory.cpp" />
     <ClCompile Include="StringFactoryDlg.cpp" />
+    <ClCompile Include="utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="StringFactory.rc" />
